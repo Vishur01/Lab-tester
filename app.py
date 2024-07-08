@@ -2,8 +2,11 @@ from flask import Flask, render_template, request, redirect, url_for
 import pickle
 import numpy as np
 import random  # Import the random module
+import os
 
 app = Flask(__name__, template_folder='template')
+port = int(os.environ.get('PORT', 5000))
+    
 
 model1 = pickle.load(open('model1.pkl', 'rb'))
 model2 = pickle.load(open('model2.pkl', 'rb'))
@@ -58,4 +61,4 @@ def input_page(model):
     return render_template('input_page.html', model=model)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=port,debug=True)
