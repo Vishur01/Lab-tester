@@ -43,7 +43,7 @@ def input_page1(model):
             pred1 = [f"{float(pred1)-2:.2f}", f"{float(pred1)+2:.2f}"]
         elif model == 'model2':
             pred2 = model2.predict(input_data)
-            pred2 = [f"{float(pred2)-2:.2f}", f"{float(pred2)+2:.2f}"]
+            pred2 = [f"{float(pred2)-0.2:.2f}", f"{float(pred2)+0.2:.2f}"]
         
     return render_template('input_page1.html', model=model, pred1=pred1, pred2=pred2)
 
