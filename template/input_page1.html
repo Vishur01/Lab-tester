@@ -6,6 +6,35 @@
     <title>Input Page</title>
    
     <style>
+        :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --light-bg: #f8f9fa;
+        }
+        .top-bar {
+        background-color: var(--primary-color);
+        padding: 15px 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        }
+        .logo {
+        height: 50px;
+        margin-left: auto; /* Move logo to the right */
+        }
+        .footer {
+        flex-shrink: 0;
+        background-color: var(--primary-color);
+        color: white;
+        padding:0cap;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        }
         body {
             font-family: 'Arial', sans-serif;
             background:  url('static/cracking-01.jpeg');
@@ -19,15 +48,14 @@
             height: 100vh;
         }
         header {
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px 0;
+            background-color: #2c3e50; /* Semi-transparent white background */
+            padding: 30px 0;
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 999;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+            width: 100%;
+            z-index: 999; /* Ensure header is on top */
+        } 
         header nav ul {
             list-style-type: none;
             margin: 0;
@@ -41,7 +69,7 @@
         }
         header nav ul li a {
             text-decoration: none;
-            color: #333;
+            color: #fff8f8;
             font-size: 18px;
             font-weight: bold;
             transition: color 0.3s ease;
@@ -141,17 +169,24 @@
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+        .logo {
+            height: 50px; /* Reduced logo height */
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
+                <li><a href="https://virtual-transportation-lab.onrender.com/">Home</a></li>
                 <li><a href="/about.html">About</a></li>
                 <li><a href="/faq">FAQ</a></li>
                 <li><a href="/useful-information">Useful Information</a></li>
             </ul>
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
         </nav>
     </header>
     <div class="container">
